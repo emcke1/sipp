@@ -176,3 +176,4 @@ Example:
 - The frontend is a plain static app in `frontend/`
 - The backend logic lives in `function_app/function_app.py`
 - The local settings file contains secrets and should not be committed
+
