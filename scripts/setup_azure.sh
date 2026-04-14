@@ -6,10 +6,10 @@
 set -euo pipefail
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-RESOURCE_GROUP="serverless-img-rg"
+RESOURCE_GROUP="serverlesimgrg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="serverlessimgstorage$RANDOM"   # must be globally unique
-FUNCTION_APP="serverless-img-func$RANDOM"
+STORAGE_ACCOUNT="serverlesimgstorage$RANDOM"   # must be globally unique
+FUNCTION_APP="serverlessimgfunc$RANDOM"
 PYTHON_VERSION="3.11"
 # ───────────────────────────────────────────────────────────────────────────────
 
