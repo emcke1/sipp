@@ -177,3 +177,5 @@ Example:
 - The backend logic lives in `function_app/function_app.py`
 - The local settings file contains secrets and should not be committed
 
+## Image Processing Website:
+link: https://thankful-water-060a3030f.7.azurestaticapps.net
