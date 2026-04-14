@@ -4,7 +4,7 @@
 const CONFIG = {
   // Azure Function URL for the HTTP-triggered upload endpoint
   // e.g. "https://serverless-img-func.azurewebsites.net/api/upload"
-  uploadUrl: "https://thankful-water-060a3030f.7.azurestaticapps.net", 
+  uploadUrl: "https://serverlessimgfunc1164.azurewebsites.net/api/upload", 
 
   // Base URL of the processed-images blob container (public read)
   // e.g. "https://serverlessimgstorage.blob.core.windows.net/processed-images"
@@ -97,8 +97,8 @@ async function pollForResult(blobName) {
 
   while (Date.now() < deadline) {
     await sleep(CONFIG.pollIntervalMs);
-    const res = await fetch(url, { method: "HEAD" });
-    if (res.ok) {
+    const ready = await canLoadImage(url);
+    if (ready) {
       setStatus(`Done! Processed in ~${Math.round((CONFIG.pollTimeoutMs - (deadline - Date.now())) / 1000)}s`, false);
       addGalleryItem(blobName, url);
       selectedFile = null;
@@ -158,4 +158,13 @@ function formatBytes(bytes) {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function canLoadImage(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = `${url}${url.includes("?") ? "&" : "?"}t=${Date.now()}`;
+  });
 }
