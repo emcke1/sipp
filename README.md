@@ -179,3 +179,10 @@ Example:
 
 ## Image Processing Website:
 link: https://thankful-water-060a3030f.7.azurestaticapps.net
+
+
+
+## Update: 
+
+Will integrstr real ecternal systems, including actual quantum hardwar into a 
+a deployed cloud pipline
